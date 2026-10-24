@@ -29,5 +29,6 @@ vault/.obsidian/*
 
 # ---- maintainer tooling state (machine-specific paths) -----------------------------------
 .compass-forge/
+.compass-forge.archive*/
 recipes/
 .claude/settings.local.json
