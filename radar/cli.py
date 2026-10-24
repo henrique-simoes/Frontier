@@ -171,7 +171,7 @@ def cmd_llm_test(a) -> None:
         print(f"judged [{item['id']}] in {time.time() - t0:.1f}s:")
         _print({k: out.get(k) for k in ("novelty_class", "novelty", "rigor", "impact", "what_is_new", "confidence")})
     else:
-        for chunk in llm.ask_stream("In one sentence, what is this radar for?", "[test:1] Frontier Radar test context"):
+        for chunk in llm.ask_stream("In one sentence, what is this radar for?", "[test:1] Frontier test context"):
             sys.stdout.write(chunk)
         print(f"\n({time.time() - t0:.1f}s)")
 
@@ -187,7 +187,7 @@ def cmd_setup(a) -> None:
 
 def main(argv=None) -> None:
     load_dotenv()   # every command sees the keys saved by `radar setup` (never overrides the environment)
-    ap = argparse.ArgumentParser(prog="radar", description="Frontier Radar")
+    ap = argparse.ArgumentParser(prog="radar", description="Frontier")
     sub = ap.add_subparsers(dest="cmd", required=True)
 
     p = sub.add_parser("llm-test", help="one real call through the configured provider for a role")

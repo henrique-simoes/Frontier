@@ -340,7 +340,7 @@ class Pipeline:
         head = top[0]["title"][:80].replace('"', "'") if top else "no new frontier items"
         msg = f"{stats.get('new', 0)} new · top: {head}"
         try:
-            subprocess.run(["osascript", "-e", f'display notification "{msg}" with title "Frontier Radar"'],
+            subprocess.run(["osascript", "-e", f'display notification "{msg}" with title "Frontier"'],
                            timeout=5, capture_output=True)
         except Exception:
             pass

@@ -1,6 +1,6 @@
-# Frontier Radar — Architecture
+# Frontier — Architecture
 
-Frontier Radar is a self-expanding research intelligence system for the AI frontier.
+Frontier is a self-expanding research intelligence system for the AI frontier.
 It reads papers, releases, repos, model drops and posts every day, scores each one for
 **novelty**, follows the people and organisations behind the best items, then follows whoever
 *those* people follow and cite. It writes everything into an Obsidian vault and serves a

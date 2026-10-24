@@ -1,4 +1,4 @@
-# Frontier Radar configuration. Paths are relative to the repo root.
+# Frontier configuration. Paths are relative to the repo root.
 paths:
   db: data/radar.db
   vault: vault
@@ -36,7 +36,7 @@ llm:
       type: openai            # hosted router to hundreds of models
       base_url: https://openrouter.ai/api/v1
       api_key_env: OPENROUTER_API_KEY
-      headers: {X-Title: Frontier Radar}
+      headers: {X-Title: Frontier}
     ollama:
       type: openai            # local Ollama
       base_url: http://localhost:11434/v1

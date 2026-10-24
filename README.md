@@ -1,4 +1,4 @@
-# Frontier Radar
+# Frontier
 
 A research radar for the AI frontier that grows on its own. Every day it reads arXiv (17 AI categories plus 12
 adjacent science/tech ones), Hugging Face daily papers and trending new models, new GitHub repos, Hacker News,

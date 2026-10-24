@@ -267,7 +267,7 @@ def check(out=print, allow_paid: bool = False) -> int:
     from .llm import backend
     from .sources.x import provider
     env = {**read_env(), **{k.name: os.environ[k.name] for k in KEYS if os.environ.get(k.name)}}
-    out(f"\nFrontier Radar keys ({ENV_PATH})\n")
+    out(f"\nFrontier keys ({ENV_PATH})\n")
     bad = 0
     for k in KEYS:
         value = env.get(k.name)
@@ -296,7 +296,7 @@ def run_wizard(only: Optional[str] = None, ask: Callable[[str], str] = input,
         out(f"Unknown key {only}. Known: {', '.join(k.name for k in KEYS)}")
         return 2
     env = read_env()
-    out("\nFrontier Radar setup. Input is hidden; press Enter to keep or skip. Keys are saved to .env (private, 0600).\n")
+    out("\nFrontier setup. Input is hidden; press Enter to keep or skip. Keys are saved to .env (private, 0600).\n")
     updates: dict[str, Optional[str]] = {}
     for k in keys:
         current = env.get(k.name)

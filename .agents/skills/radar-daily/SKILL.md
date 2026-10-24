@@ -1,6 +1,6 @@
 ---
 name: radar-daily
-description: "Run the Frontier Radar daily pipeline, then do the agentic research pass APIs can't do: read top items' primary sources, hunt the web for missed frontier releases, resolve leads, and write research notes. Use for the daily radar routine or when asked to update the radar."
+description: "Run the Frontier daily pipeline, then do the agentic research pass APIs can't do: read top items' primary sources, hunt the web for missed frontier releases, resolve leads, and write research notes. Use for the daily radar routine or when asked to update the radar."
 ---
 
 # Radar Daily

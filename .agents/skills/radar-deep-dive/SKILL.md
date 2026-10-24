@@ -1,6 +1,6 @@
 ---
 name: radar-deep-dive
-description: "Expert deep dive on one Frontier Radar item: read the primary source, identify what is new versus prior work, judge evidence, and write a research note into the vault. Use when asked to dig into, explain or assess a specific paper, model, repo or radar id."
+description: "Expert deep dive on one Frontier item: read the primary source, identify what is new versus prior work, judge evidence, and write a research note into the vault. Use when asked to dig into, explain or assess a specific paper, model, repo or radar id."
 ---
 
 # Radar Deep Dive

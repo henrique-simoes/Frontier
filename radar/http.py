@@ -14,7 +14,7 @@ import httpx
 from .config import config
 from .util import sha1
 
-USER_AGENT = "FrontierRadar/0.1 (personal research radar; +https://github.com/)"
+USER_AGENT = "Frontier/0.1 (research radar; +https://github.com/henrique-simoes/Frontier)"
 
 # Minimum seconds between requests per host.
 HOST_INTERVAL = {

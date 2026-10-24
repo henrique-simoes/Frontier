@@ -1,7 +1,7 @@
 ---
 tags: [radar/home]
 ---
-# Frontier Radar
+# Frontier
 
 The radar writes here every morning. Your own notes outside the `radar:auto` markers are never overwritten.
 

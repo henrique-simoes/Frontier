@@ -1,6 +1,6 @@
 ---
 name: radar-expand
-description: "Grow the Frontier Radar source graph deliberately: resolve unresolved leads to real handles and add frontier sources in thin areas. Use when asked to find more sources, labs or researchers to follow."
+description: "Grow the Frontier source graph deliberately: resolve unresolved leads to real handles and add frontier sources in thin areas. Use when asked to find more sources, labs or researchers to follow."
 ---
 
 # Radar Expand

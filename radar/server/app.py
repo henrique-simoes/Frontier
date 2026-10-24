@@ -20,7 +20,7 @@ from ..vault import obsidian_uri
 
 load_dotenv()   # the server sees keys saved by `radar setup`
 STATIC = Path(__file__).parent / "static"
-app = FastAPI(title="Frontier Radar")
+app = FastAPI(title="Frontier")
 app.mount("/static", StaticFiles(directory=STATIC), name="static")
 _run_lock = threading.Lock()
 _run_state: dict = {"running": False, "last": None, "error": None}

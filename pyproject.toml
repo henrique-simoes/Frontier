@@ -1,5 +1,5 @@
 [project]
-name = "frontier-radar"
+name = "frontier"
 version = "0.1.0"
 description = "A self-expanding, novelty-scored research radar for the AI frontier, written into Obsidian."
 license = "MIT"

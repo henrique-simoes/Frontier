@@ -1,4 +1,4 @@
-# Frontier Radar: instructions for AI coding agents
+# Frontier: instructions for AI coding agents
 
 This file follows the open [AGENTS.md](https://agents.md) format and is read by Codex, Cursor, GitHub Copilot,
 Gemini CLI, Claude Code (through `CLAUDE.md`, which imports it) and other harnesses.

@@ -1,6 +1,6 @@
 ---
 name: radar-ask
-description: "Answer a question from the Frontier Radar knowledge graph with cited radar ids, researching gaps on the web and adding what is found. Use for questions about recent AI research, labs, people, releases or trends."
+description: "Answer a question from the Frontier knowledge graph with cited radar ids, researching gaps on the web and adding what is found. Use for questions about recent AI research, labs, people, releases or trends."
 ---
 
 # Radar Ask

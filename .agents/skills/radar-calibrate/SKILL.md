@@ -1,6 +1,6 @@
 ---
 name: radar-calibrate
-description: "Audit the Frontier Radar novelty scorer against expert judgement, rate disagreements and re-fit weights. Use when scores look off or periodically to keep the scorer honest."
+description: "Audit the Frontier novelty scorer against expert judgement, rate disagreements and re-fit weights. Use when scores look off or periodically to keep the scorer honest."
 ---
 
 # Radar Calibrate
