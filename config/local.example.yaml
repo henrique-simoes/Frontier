@@ -1,0 +1,26 @@
+# Personal settings. Copy to config/local.yaml (gitignored) or run `radar setup --llm`.
+# Anything here deep-merges over config/radar.yaml; keys stay in .env, never here.
+
+# Example: review items on your own GPU box (free), chat with Claude.
+# llm:
+#   providers:
+#     my-gpu:
+#       type: openai
+#       base_url: http://my-gpu-host:8080/v1          # llama.cpp / vLLM / Ollama / LM Studio
+#       model: qwen3-32b
+#       timeout: 600
+#       extra:                                       # sent as-is in the request body
+#         chat_template_kwargs: {enable_thinking: false}
+#   judge: {provider: my-gpu, max_tokens: 3000}
+#   ask:   {provider: anthropic, model: claude-opus-5-5, effort: medium}
+
+# Example: everything through OpenRouter (needs OPENROUTER_API_KEY in .env).
+# llm:
+#   judge: {provider: openrouter, model: <a model id from https://openrouter.ai/models>}
+#   ask:   {provider: openrouter, model: <a model id>}
+
+# Budgets, paths and sources can be overridden the same way, e.g.:
+# x: {daily_usd_cap: 3.0, lists: ["1234567890"]}
+# paths: {vault: /Users/me/Obsidian/Frontier}
+
+# Personal seeds go in config/seeds.local.yaml (same format as seeds.yaml; entries append).

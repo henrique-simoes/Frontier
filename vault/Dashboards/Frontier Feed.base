@@ -1,0 +1,46 @@
+filters:
+  and:
+    - file.inFolder("Items")
+    - "frontier >= 55"
+formulas:
+  age: '(now() - date(discovered)) / 86400000'
+properties:
+  frontier:
+    displayName: Frontier
+  novelty_class:
+    displayName: Class
+  formula.age:
+    displayName: Days
+views:
+  - type: table
+    name: Last 3 days
+    filters:
+      and:
+        - 'date(discovered) > now() - "3d"'
+    order:
+      - frontier
+      - file.name
+      - novelty_class
+      - kind
+      - orgs
+      - modalities
+      - rating
+    sort:
+      - property: frontier
+        direction: DESC
+    limit: 100
+  - type: cards
+    name: Top this week
+    filters:
+      and:
+        - 'date(discovered) > now() - "7d"'
+        - "frontier >= 70"
+    order:
+      - file.name
+      - frontier
+      - novelty_class
+      - orgs
+    sort:
+      - property: frontier
+        direction: DESC
+    limit: 30

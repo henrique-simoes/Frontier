@@ -1,0 +1,20 @@
+[project]
+name = "frontier-radar"
+version = "0.1.0"
+description = "A self-expanding, novelty-scored research radar for the AI frontier, written into Obsidian."
+license = "MIT"
+license-files = ["LICENSE"]
+requires-python = ">=3.9"
+dependencies = ["httpx>=0.27", "feedparser>=6.0", "numpy>=1.26", "pyyaml>=6.0", "fastapi>=0.110", "uvicorn>=0.29", "anthropic>=0.125"]
+
+[project.optional-dependencies]
+embeddings = ["model2vec>=0.4"]
+
+[project.scripts]
+radar = "radar.cli:main"
+
+[tool.setuptools.packages.find]
+include = ["radar*"]
+
+[tool.setuptools.package-data]
+"radar.server" = ["static/*"]

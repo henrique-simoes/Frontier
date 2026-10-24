@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Frontier Radar</title>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><circle cx='16' cy='16' r='14' fill='none' stroke='%237c9cff' stroke-width='2'/><circle cx='16' cy='16' r='8' fill='none' stroke='%237c9cff' stroke-width='2' opacity='.6'/><path d='M16 16 L27 9' stroke='%23ffb86b' stroke-width='2.5' stroke-linecap='round'/><circle cx='22' cy='12' r='2.5' fill='%23ffb86b'/></svg>">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/static/style.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/cytoscape/3.30.2/cytoscape.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/marked/12.0.2/marked.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/dompurify/3.1.6/purify.min.js"></script>
+</head>
+<body>
+<div class="app">
+  <nav class="side">
+    <div class="brand"><span class="dot"></span>Frontier&nbsp;Radar</div>
+    <a href="#/today" data-view="today" class="nav active">Today</a>
+    <a href="#/graph" data-view="graph" class="nav">Graph</a>
+    <a href="#/watch" data-view="watch" class="nav">Watchlist</a>
+    <a href="#/activity" data-view="activity" class="nav">Activity</a>
+    <a href="#/brief" data-view="brief" class="nav">Brief</a>
+    <div class="side-stats" id="sideStats"></div>
+    <button class="run-btn" id="runBtn" title="Run the pipeline now">Run now</button>
+    <div class="keys"><kbd>⌘K</kbd> ask · <kbd>j</kbd>/<kbd>k</kbd> move · <kbd>1</kbd>–<kbd>4</kbd> rate · <kbd>↵</kbd> open</div>
+  </nav>
+
+  <main class="main">
+    <header class="top">
+      <button class="askbar" id="askOpen"><span class="spark">✦</span> Ask the radar anything… <kbd>⌘K</kbd></button>
+    </header>
+
+    <section id="view-today" class="view">
+      <div class="filters">
+        <div class="seg" id="daysSeg">
+          <button data-days="1">24h</button><button data-days="3" class="on">3d</button>
+          <button data-days="7">7d</button><button data-days="30">30d</button>
+        </div>
+        <div class="seg" id="kindSeg">
+          <button data-kind="" class="on">All</button><button data-kind="paper">Papers</button>
+          <button data-kind="model">Models</button><button data-kind="repo">Repos</button><button data-kind="post">Posts</button>
+        </div>
+        <select id="modality">
+          <option value="">Any modality</option>
+          <option>text</option><option>vision</option><option>video</option><option>audio</option><option>3d</option>
+          <option>robotics</option><option>code</option><option>science</option><option>multimodal</option>
+        </select>
+        <label class="tog"><input type="checkbox" id="small"> Outside big labs</label>
+        <label class="tog"><input type="checkbox" id="unrated"> Unrated</label>
+      </div>
+      <div id="feed" class="feed"></div>
+    </section>
+
+    <section id="view-graph" class="view hidden">
+      <div class="graph-bar">
+        <span id="graphTitle">Today's frontier and the people/orgs behind it</span>
+        <button id="graphReset" class="ghost">Reset</button>
+        <span class="legend"><i class="lg item"></i>item <i class="lg topic"></i>topic <i class="lg person"></i>person <i class="lg org"></i>org</span>
+      </div>
+      <div id="cy"></div>
+    </section>
+
+    <section id="view-watch" class="view hidden">
+      <div class="filters">
+        <div class="seg" id="watchSeg">
+          <button data-status="active,candidate" class="on">Watching</button>
+          <button data-status="candidate">Candidates</button><button data-status="dormant">Dormant</button>
+        </div>
+      </div>
+      <table class="table" id="watchTable"></table>
+    </section>
+
+    <section id="view-activity" class="view hidden"><ul id="activity" class="activity"></ul></section>
+    <section id="view-brief" class="view hidden"><article id="brief" class="prose"></article></section>
+  </main>
+
+  <aside class="drawer" id="drawer" aria-hidden="true">
+    <button class="close" id="drawerClose" aria-label="Close">×</button>
+    <div id="drawerBody"></div>
+  </aside>
+</div>
+
+<div class="chat" id="chat" aria-hidden="true">
+  <div class="chat-head"><span class="spark">✦</span> Ask the radar <button class="close" id="chatClose">×</button></div>
+  <div class="chat-log" id="chatLog">
+    <div class="hint">Try: <a data-q="What's genuinely new this week outside the big labs?">What's new outside the big labs?</a> ·
+      <a data-q="Which new architectures or training methods appeared in the last 3 days?">New architectures?</a> ·
+      <a data-q="What should I read first today and why?">What should I read first?</a></div>
+  </div>
+  <form class="chat-in" id="chatForm"><input id="chatInput" placeholder="Ask about papers, labs, people, trends…" autocomplete="off"><button>Ask</button></form>
+</div>
+
+<script src="/static/app.js"></script>
+</body>
+</html>

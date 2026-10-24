@@ -1,0 +1,19 @@
+filters:
+  and:
+    - file.inFolder("Entities")
+    - 'status == "active" || status == "candidate"'
+views:
+  - type: table
+    name: Watching
+    order:
+      - file.name
+      - type
+      - status
+      - yield
+      - hits
+      - centrality
+      - best_frontier
+      - depth
+    sort:
+      - property: yield
+        direction: DESC

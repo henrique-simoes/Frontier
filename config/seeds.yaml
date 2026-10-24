@@ -1,0 +1,102 @@
+# Seed entities. The radar grows from here: it follows authors, references, citations and
+# social follows of whatever scores high. Handles are optional; any one is enough to watch.
+#   github: user/org   hf: HF org   bluesky: handle   feed: RSS/Atom URL   homepage: URL (feed is auto-discovered)
+#   arxiv_author: "Last, First" query   s2: Semantic Scholar author id   x: X handle (no @; validated on first X API run)
+# Seeds deliberately over-weight small/independent labs and infra; the big labs are here for coverage.
+
+orgs:
+  # frontier labs (coverage)
+  - {name: Google DeepMind, homepage: "https://deepmind.google/discover/blog/", github: google-deepmind, hf: google, x: GoogleDeepMind}
+  - {name: OpenAI, feed: "https://openai.com/news/rss.xml", github: openai, hf: openai, x: OpenAI}
+  - {name: Anthropic, homepage: "https://www.anthropic.com/research", github: anthropics, x: AnthropicAI}
+  - {name: Meta FAIR, homepage: "https://ai.meta.com/blog/", github: facebookresearch, hf: facebook, x: AIatMeta}
+  - {name: Mistral AI, homepage: "https://mistral.ai/news", hf: mistralai, github: mistralai, x: MistralAI}
+  - {name: Qwen, homepage: "https://qwenlm.github.io/blog/", hf: Qwen, github: QwenLM, x: Alibaba_Qwen}
+  - {name: DeepSeek, hf: deepseek-ai, github: deepseek-ai, x: deepseek_ai}
+  - {name: Moonshot AI, hf: moonshotai, github: MoonshotAI, x: Kimi_Moonshot}
+  - {name: Zhipu AI, hf: zai-org, github: zai-org, x: Zai_org}
+  - {name: MiniMax, hf: MiniMaxAI, github: MiniMax-AI, x: MiniMax__AI}
+  - {name: StepFun, hf: stepfun-ai, github: stepfun-ai, x: StepFun_ai}
+  - {name: NVIDIA Research, hf: nvidia, github: NVlabs, x: NVIDIAAI}
+  # small / independent / research-first labs
+  - {name: Sakana AI, homepage: "https://sakana.ai/blog/", hf: SakanaAI, github: SakanaAI, x: SakanaAILabs}
+  - {name: Nous Research, homepage: "https://nousresearch.com/", hf: NousResearch, github: NousResearch, x: NousResearch}
+  - {name: Prime Intellect, homepage: "https://www.primeintellect.ai/blog", hf: PrimeIntellect, github: PrimeIntellect-ai, x: PrimeIntellect}
+  - {name: Allen Institute for AI, homepage: "https://allenai.org/blog", hf: allenai, github: allenai, x: allen_ai}
+  - {name: EleutherAI, homepage: "https://blog.eleuther.ai/", hf: EleutherAI, github: EleutherAI, x: AiEleuther}
+  - {name: Thinking Machines Lab, homepage: "https://thinkingmachines.ai/blog/", github: thinking-machines-lab, x: thinkymachines}
+  - {name: Liquid AI, homepage: "https://www.liquid.ai/blog", hf: LiquidAI, x: LiquidAI_}
+  - {name: Cartesia, homepage: "https://cartesia.ai/blog", github: cartesia-ai, x: cartesia_ai}
+  - {name: Physical Intelligence, homepage: "https://www.physicalintelligence.company/blog", github: Physical-Intelligence, x: physical_int}
+  - {name: Goodfire, homepage: "https://www.goodfire.ai/research", github: goodfire-ai, x: GoodfireAI}
+  - {name: Transformer Circuits, homepage: "https://transformer-circuits.pub/"}
+  - {name: Hazy Research, homepage: "https://hazyresearch.stanford.edu/blog", github: HazyResearch, x: HazyResearch}
+  - {name: Answer.AI, homepage: "https://www.answer.ai/", github: AnswerDotAI, hf: answerdotai, x: answerdotai}
+  - {name: Hugging Face Science, feed: "https://huggingface.co/blog/feed.xml", hf: HuggingFaceTB, github: huggingface, x: huggingface}
+  - {name: Together AI, homepage: "https://www.together.ai/blog", hf: togethercomputer, github: togethercomputer, x: togethercompute}
+  - {name: Reka, homepage: "https://reka.ai/news", hf: RekaAI, x: RekaAILabs}
+  - {name: Arcee AI, homepage: "https://www.arcee.ai/blog", hf: arcee-ai, x: arcee_ai}
+  - {name: Pleias, hf: PleIAs}
+  - {name: Essential AI, hf: EssentialAI}
+  - {name: Zyphra, homepage: "https://www.zyphra.com/", hf: Zyphra, x: ZyphraAI}
+  - {name: Kyutai, homepage: "https://kyutai.org/", hf: kyutai, github: kyutai-labs, x: kyutai_labs}
+  - {name: Black Forest Labs, hf: black-forest-labs, github: black-forest-labs, x: bfl_ml}
+  - {name: Lightricks, hf: Lightricks}
+  - {name: Genmo, hf: genmo}
+  - {name: World Labs, homepage: "https://www.worldlabs.ai/blog", x: theworldlabs}
+  - {name: Epoch AI, homepage: "https://epoch.ai/blog", x: EpochAIResearch}
+  - {name: METR, homepage: "https://metr.org/blog", x: METR_Evals}
+  - {name: Apollo Research, homepage: "https://www.apolloresearch.ai/blog", x: apolloaievals}
+  - {name: FutureHouse, homepage: "https://www.futurehouse.org/research", github: Future-House, x: FutureHouseSF}
+  - {name: Arc Institute, homepage: "https://arcinstitute.org/news", github: ArcInstitute, x: arcinstitute}
+  - {name: Periodic Labs, homepage: "https://periodic.com/"}
+  - {name: Lila Sciences, homepage: "https://www.lila.ai/"}
+  - {name: LMSYS / SGLang, homepage: "https://lmsys.org/blog/", github: sgl-project, x: lmsysorg}
+  - {name: vLLM, homepage: "https://blog.vllm.ai/", github: vllm-project, x: vllm_project}
+  - {name: PyTorch, homepage: "https://pytorch.org/blog/", github: pytorch, x: PyTorch}
+  - {name: Modular, homepage: "https://www.modular.com/blog", github: modular, x: Modular}
+  - {name: tinygrad, github: tinygrad, x: __tinygrad__}
+  - {name: ggml / llama.cpp, github: ggml-org, x: ggerganov}
+  - {name: MLX, github: ml-explore, hf: mlx-community}
+  - {name: Unsloth, github: unslothai, hf: unsloth, x: UnslothAI}
+  # databases / data infra for AI
+  - {name: DuckDB, homepage: "https://duckdb.org/news/", github: duckdb, x: duckdb}
+  - {name: LanceDB, homepage: "https://blog.lancedb.com/", github: lancedb, x: lancedb}
+  - {name: Turbopuffer, homepage: "https://turbopuffer.com/blog", x: turbopuffer}
+  - {name: Qdrant, homepage: "https://qdrant.tech/blog/", github: qdrant, x: qdrant_engine}
+  - {name: Weaviate, homepage: "https://weaviate.io/blog", github: weaviate, x: weaviate_io}
+  - {name: Chroma, homepage: "https://www.trychroma.com/", github: chroma-core, x: trychroma}
+  - {name: pgvector, github: pgvector}
+  - {name: Daft / Eventual, github: Eventual-Inc}
+  # harnesses / agent frameworks
+  - {name: LangChain, homepage: "https://blog.langchain.com/", github: langchain-ai, x: LangChainAI}
+  - {name: DSPy, github: stanfordnlp, x: DSPyOSS}
+  - {name: OpenHands, github: OpenHands}
+  - {name: Model Context Protocol, github: modelcontextprotocol}
+  - {name: Pydantic, homepage: "https://pydantic.dev/articles", github: pydantic, x: pydantic}
+  # venues / journals
+  - {name: Nature Machine Intelligence, feed: "https://www.nature.com/natmachintell.rss"}
+  - {name: BAIR, feed: "https://bair.berkeley.edu/blog/feed.xml"}
+  - {name: Google Research, homepage: "https://research.google/blog/"}
+
+people:
+  - {name: Andrej Karpathy, github: karpathy, homepage: "https://karpathy.bearblog.dev/", x: karpathy}
+  - {name: Simon Willison, feed: "https://simonwillison.net/atom/everything/", bluesky: simonwillison.net, github: simonw, x: simonw}
+  - {name: Nathan Lambert, homepage: "https://www.interconnects.ai/", bluesky: natolambert.bsky.social, x: natolambert}
+  - {name: Lilian Weng, homepage: "https://lilianweng.github.io/", x: lilianweng}
+  - {name: Jack Clark, homepage: "https://importai.substack.com/", x: jackclarkSF}
+  - {name: Sebastian Raschka, homepage: "https://magazine.sebastianraschka.com/", github: rasbt, x: rasbt}
+  - {name: Chris Olah, homepage: "https://colah.github.io/", x: ch402}
+  - {name: Tri Dao, github: tridao, x: tri_dao}
+  - {name: Albert Gu, arxiv_author: "Gu, Albert", x: _albertgu}
+  - {name: Jeremy Howard, github: jph00, x: jeremyphoward}
+  - {name: Lucas Beyer, homepage: "https://lucasb.eyer.be/", x: giffmana}
+  - {name: Jascha Sohl-Dickstein, arxiv_author: "Sohl-Dickstein, Jascha", x: jaschasd}
+  - {name: Sasha Rush, github: srush, bluesky: srush.bsky.social, x: srush_nlp}
+  - {name: Omar Khattab, github: okhat, x: lateinteraction}
+  - {name: Phillip Isola, arxiv_author: "Isola, Phillip", x: phillip_isola}
+  - {name: Chelsea Finn, arxiv_author: "Finn, Chelsea", x: chelseabfinn}
+  - {name: Sergey Levine, arxiv_author: "Levine, Sergey", x: svlevine}
+  - {name: Yejin Choi, arxiv_author: "Choi, Yejin", x: YejinChoinka}
+  - {name: Percy Liang, arxiv_author: "Liang, Percy", x: percyliang}
+  - {name: Neel Nanda, homepage: "https://www.neelnanda.io/", x: NeelNanda5}

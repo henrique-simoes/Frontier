@@ -1,0 +1,131 @@
+# Frontier Radar configuration. Paths are relative to the repo root.
+paths:
+  db: data/radar.db
+  vault: vault
+  cache: data/http-cache
+
+llm:
+  # Which model does what. Pick any provider below; put personal choices in config/local.yaml (gitignored),
+  # or run `radar setup --llm`. If a role's provider has no key/endpoint, llm.fallback is tried in order.
+  # A role may set `model` to override its provider's default model. Leave it out so switching `provider`
+  # (e.g. in config/local.yaml) picks up that provider's own model.
+  judge:                      # per-item review + daily tournament (bulk, structured JSON)
+    provider: anthropic
+    effort: low
+  ask:                        # chat in the web app / `radar ask`
+    provider: anthropic
+    effort: medium
+  fallback: [claude-cli, none]
+  judge_top_k: 40             # items per run that get the qualitative review
+  tournament_size: 15
+  # Built-in: anthropic (native SDK), claude-cli (your Claude Code login), none.
+  # Any OpenAI-compatible endpoint works with type: openai. Set the model per role or per provider.
+  providers:
+    anthropic:
+      type: anthropic
+      model: claude-opus-5-5
+    openai:
+      type: openai
+      base_url: https://api.openai.com/v1
+      api_key_env: OPENAI_API_KEY
+    gemini:
+      type: openai            # Gemini's OpenAI-compatible endpoint
+      base_url: https://generativelanguage.googleapis.com/v1beta/openai
+      api_key_env: GEMINI_API_KEY
+    openrouter:
+      type: openai            # hosted router to hundreds of models
+      base_url: https://openrouter.ai/api/v1
+      api_key_env: OPENROUTER_API_KEY
+      headers: {X-Title: Frontier Radar}
+    ollama:
+      type: openai            # local Ollama
+      base_url: http://localhost:11434/v1
+    llamacpp:
+      type: openai            # local llama.cpp llama-server (also vLLM / LM Studio with their ports)
+      base_url: http://localhost:8080/v1
+
+embedding:
+  backend: hash               # hash (no deps) | model2vec (pip install model2vec)
+  model2vec_model: minishlab/potion-base-8M
+  dims: 1024
+
+collect:
+  lookback_days: 3
+  arxiv_categories: [cs.AI, cs.LG, cs.CL, cs.CV, cs.RO, cs.MA, cs.IR, cs.DB, cs.DC, cs.AR, cs.NE, cs.SD, cs.HC, cs.CR, eess.AS, eess.IV, stat.ML]
+  # science/tech that supports or is transformed by AI: kept only when the abstract is about learning/AI
+  arxiv_adjacent_categories: [q-bio.QM, q-bio.BM, cond-mat.dis-nn, cond-mat.mtrl-sci, quant-ph, physics.comp-ph, physics.optics, cs.ET, cs.PF, cs.PL, cs.SE, math.OC]
+  arxiv_per_category: 120
+  hf_daily_papers: true
+  hf_trending_models: 100
+  github_queries:
+    - "topic:llm"
+    - "topic:agents"
+    - "topic:inference"
+    - "topic:vector-database"
+    - "topic:diffusion"
+    - "topic:reinforcement-learning"
+    - "topic:robotics"
+    - "topic:mcp"
+    - "llm in:description"
+  github_min_stars: 40
+  hn_min_points: 60
+  bluesky_follow_posts: true
+
+score:
+  discover_threshold: 62      # Frontier score that triggers entity discovery...
+  discover_top_n: 20          # ...or being in the run's top N (keeps the graph growing before the LLM spreads scores)
+  frontier_threshold: 70      # counts as a "hit" for bandit yield...
+  hit_top_pct: 5              # ...or being in the run's top 5%
+  vault_min: 55               # minimum score for an item note (judged items always get one)
+  knn_k: 5
+  recency_half_life_days: 4
+
+expand:
+  budget_per_run: 60          # entity checks per run
+  max_new_entities_per_run: 150
+  max_active_entities: 5000
+  depth_decay: 0.7
+  follow_references: true
+  follow_citations: true
+  follow_social: true
+
+x:
+  # Sanctioned access only (no scraping; see docs/build-stream/2026-10-24-x-source.md DEC-2).
+  # auto = xapi if X_BEARER_TOKEN is set, else xai if XAI_API_KEY is set, else off. Nothing is spent without a key.
+  provider: auto              # auto | xapi | xai | none
+  accounts_per_run: 40        # watched X accounts polled per run (Thompson-sampled on yield)
+  posts_per_account: 20
+  lists: []                   # public X list ids to poll every run (xapi), e.g. your curated "AI researchers" list
+  posts_per_list: 100
+  min_likes_for_search: 25    # xapi discovery-query posts below this are ignored
+  follow_accounts_per_run: 2  # follow-graph reads per run (xapi; ~$0.01 per followed account returned)
+  following_limit: 200
+  max_mention_leads_per_run: 25
+  max_post_reads_per_run: 1000
+  max_user_reads_per_run: 300
+  daily_usd_cap: 8.0          # hard stop: a call whose projected cost crosses this is refused
+  xai_model: grok-4.7
+  xai_max_turns: 3
+  pricing:                    # USD; check docs.x.com / docs.x.ai pricing and adjust
+    post_read: 0.005
+    user_read: 0.010
+    xai_post: 0.005
+    xai_user: 0.010
+    xai_usd_per_m_input: 3.0  # set to your Grok model's token prices
+    xai_usd_per_m_output: 15.0
+  queries:
+    xapi:
+      - 'url:"arxiv.org" -is:retweet -is:reply'
+      - 'url:"huggingface.co" -is:retweet -is:reply'
+      - '("open weights" OR "we release" OR "we are releasing" OR "new paper") (model OR paper OR dataset OR benchmark) -is:retweet -is:reply lang:en'
+    xai:
+      - "Find the most discussed posts by AI researchers and research labs announcing new papers, model or weight releases, datasets, benchmarks or systems."
+      - "Find posts from small or independent AI labs and individual researchers sharing new frontier results, especially ones outside the big labs."
+      - "Find posts announcing new AI infrastructure: databases, inference engines, kernels, compilers, hardware or agent frameworks."
+
+notify:
+  macos: true
+
+server:
+  host: 127.0.0.1
+  port: 7777

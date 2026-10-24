@@ -1,0 +1,17 @@
+filters:
+  and:
+    - file.inFolder("Items")
+    - "judged == true"
+    - "!rating"
+views:
+  - type: table
+    name: Rate these (frontier / solid / incremental / hype / irrelevant)
+    order:
+      - frontier
+      - file.name
+      - novelty_class
+      - rating
+    sort:
+      - property: frontier
+        direction: DESC
+    limit: 50

@@ -1,0 +1,8 @@
+httpx>=0.27
+feedparser>=6.0
+numpy>=1.26
+pyyaml>=6.0
+fastapi>=0.110
+uvicorn>=0.29
+anthropic>=0.125
+# optional, better embeddings (then: radar reembed):  model2vec>=0.4

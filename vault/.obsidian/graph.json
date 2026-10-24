@@ -1,0 +1,11 @@
+{
+  "showTags": false, "showAttachments": false, "hideUnresolved": true, "showOrphans": false,
+  "colorGroups": [
+    { "query": "path:Entities/People", "color": { "a": 1, "rgb": 2970559 } },
+    { "query": "path:Entities/Orgs", "color": { "a": 1, "rgb": 16758891 } },
+    { "query": "path:Topics", "color": { "a": 1, "rgb": 10980346 } },
+    { "query": "[\"frontier\":>79]", "color": { "a": 1, "rgb": 16736043 } },
+    { "query": "path:Items", "color": { "a": 1, "rgb": 8166655 } }
+  ],
+  "nodeSizeMultiplier": 1.1, "lineSizeMultiplier": 0.6, "repelStrength": 12, "linkDistance": 160
+}

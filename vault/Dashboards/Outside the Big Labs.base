@@ -1,0 +1,19 @@
+filters:
+  and:
+    - file.inFolder("Items")
+    - "frontier >= 60"
+    - "signals.periphery >= 0.6"
+views:
+  - type: table
+    name: Small labs and new voices
+    order:
+      - frontier
+      - file.name
+      - people
+      - orgs
+      - novelty_class
+      - discovered
+    sort:
+      - property: frontier
+        direction: DESC
+    limit: 100

@@ -1,0 +1,19 @@
+filters:
+  and:
+    - file.inFolder("Items")
+    - "frontier >= 60"
+    - 'date(discovered) > now() - "14d"'
+views:
+  - type: table
+    name: By modality
+    groupBy:
+      property: modalities
+      direction: ASC
+    order:
+      - frontier
+      - file.name
+      - areas
+      - layer
+    sort:
+      - property: frontier
+        direction: DESC

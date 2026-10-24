@@ -1,0 +1,32 @@
+# Controlled vocabulary. Each concept lists match patterns (lowercase substrings or regex: prefix "re:").
+# Facets: modality, area, layer. Free concepts are also mined from titles/keywords at runtime.
+modality:
+  text: [language model, llm, text, nlp, tokeniz]
+  vision: [vision, image, visual, vit, segmentation, detection]
+  video: [video, temporal generation, world model]
+  audio: [audio, speech, voice, asr, tts, music]
+  3d: [3d, gaussian splat, nerf, point cloud, mesh]
+  robotics: [robot, embodied, manipulation, locomotion, vla, vision-language-action]
+  code: [code generation, coding, program synthesis, software engineering, swe-bench]
+  science: [protein, molecule, materials, chemistry, genomic, weather, physics-informed, drug]
+  multimodal: [multimodal, vision-language, omni, any-to-any]
+area:
+  reasoning: [reasoning, chain-of-thought, test-time, inference-time scaling, thinking]
+  agents: [agent, agentic, tool use, computer use, harness, scaffold, orchestration]
+  rl: [reinforcement learning, rlhf, rlvr, grpo, reward model, policy optimization]
+  architecture: [architecture, attention, state space, mamba, mixture of experts, moe, linear attention, recurrent, diffusion language]
+  efficiency: [quantiz, distill, pruning, sparsity, speculative decoding, kv cache, low-rank, lora]
+  pretraining: [pretrain, scaling law, data mixture, tokenizer, curriculum]
+  alignment: [alignment, safety, interpretab, mechanistic, sparse autoencoder, steering, red team]
+  evaluation: [benchmark, evaluation, leaderboard, eval]
+  memory: [memory, retrieval, rag, long context, context engineering]
+  generative: [diffusion, flow matching, autoregressive image, generative]
+  theory: [theory, theorem, provabl, generalization bound]
+layer:
+  model: [model, checkpoint, weights, open-weight, release]
+  harness: [harness, scaffold, agent framework, sdk, orchestration, mcp, prompt]
+  infra: [inference engine, serving, kernel, compiler, cuda, triton, distributed training, cluster]
+  data: [dataset, data pipeline, synthetic data, corpus]
+  database: [database, vector, index, olap, sqlite, duckdb, lance, postgres, graph database]
+  hardware: [chip, accelerator, tpu, gpu, photonic, neuromorphic, asic, memory bandwidth]
+  science: [discovery, automated science, ai scientist, hypothesis]
